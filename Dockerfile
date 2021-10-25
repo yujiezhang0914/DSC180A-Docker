@@ -24,8 +24,10 @@ RUN apt-get -y install aria2 && \
     apt-get -y install traceroute
 
 # 3) install packages using notebook user
-RUN pip install geopandas && \
-    pip install babypandas
+USER jovyan
+
+RUN pip install --no-cache-dir geopandas && \
+    pip install --no-cache-dir babypandas
 
 # Override command to disable running jupyter notebook at launch
 # CMD ["/bin/bash"]
